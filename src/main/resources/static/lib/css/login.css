@@ -1,0 +1,85 @@
+body {
+	background-image: url(../../lib/img/1.jpg);
+	background-size: cover;
+}
+
+.word {
+	font-family: 黑体;
+}
+
+.login {
+	padding-top: 15%;
+	width: 26%;
+}
+
+.btn-center {
+	text-center: center;
+	margin: 0 auto;
+}
+
+.pass {
+	width: 200px;
+	height: 20px;
+}
+/* 验证码样式*/
+/* #canvas {
+	float: right;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.input-val {
+	width: 295px;
+	background: #ffffff;
+	height: 2.8rem;
+	padding: 0 2%;
+	border-radius: 5px;
+	border: none;
+	border: 1px solid rgba(0, 0, 0, .2);
+	font-size: 1.0625rem;
+}
+
+.code {
+	width: 400px;
+	margin: 0 auto;
+} */
+
+/* 滑块验证码 */
+.drag {
+	width: 300px;
+	height: 40px;
+	line-height: 40px;
+	background-color: #e8e8e8;
+	position: relative;
+	margin: 0 auto;
+}
+
+.bg {
+	width: 40px;
+	height: 100%;
+	position: absolute;
+	background-color: #75CDF9;
+}
+
+.text {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	user-select: none;
+}
+
+.btn {
+	width: 40px;
+	height: 38px;
+	position: absolute;
+	border: 1px solid #ccc;
+	cursor: move;
+	font-family: "宋体";
+	text-align: center;
+	background-color: #fff;
+	user-select: none;
+	color: #666;
+}

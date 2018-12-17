@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>主页</title>
+<link rel="stylesheet" th:href="@{../../lib/layui/css/layui.css}" />
+</head>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+<!-- 头部 -->
+	<div class="layui-header">
+        <div class="layui-logo">XX管理平台</div>
+        <ul class="layui-nav layui-layout-right">
+            <li class="layui-nav-item">
+              	[[${username}]]，小老弟你来啦！
+            </li>
+            <li class="layui-nav-item"><a href="../../logout">安全退出</a></li>
+        </ul>
+    </div>
+	<!-- 侧边菜单 -->
+	<div class="layui-side layui-bg-black">
+		<div class="layui-side-scroll">
+		 <!-- 左侧垂直导航区域-->
+			<ul class="layui-nav layui-nav-tree" lay-filter="test">
+
+			<!-- 	<li class="layui-nav-item"><a
+					href="javascript:;"> <i class="layui-icon layui-icon-home"></i>
+						<cite>主页</cite> <span class="layui-nav-more"></span>
+				</a>
+					<dl class="layui-nav-child">
+						<dd data-name="console" class="layui-this">
+							<a lay-href="/system/main">了解ME</a>
+						</dd>
+					</dl>
+				</li> -->
+
+				<li class="layui-nav-item" th:each="menu : ${permissions}">
+				<a href="javascript:;"> <i class="layui-icon layui-icon-home"
+						></i> <cite th:text="${menu.resName}">一级菜单</cite>
+						<span class="layui-nav-more"></span>
+				</a>
+
+					<dl class="layui-nav-child"
+						th:each="cmenu : ${menu.children}">
+						<dd>
+							<a th:if="${#lists.isEmpty(cmenu.children)}" th:attr="data-id=${cmenu.id},data-name=${cmenu.resName},data-url=${cmenu.url}"
+								th:utext="${cmenu.resName}"  class="site-demo-active">二级菜单</a>
+							<a th:if="${not #lists.isEmpty(cmenu.children)}"
+								href="javascript:;">[[${cmenu.resName}]]</a>
+							<dl th:if="${not #lists.isEmpty(cmenu.children)}"
+								class="layui-nav-child">
+								<dd th:each="emenu : ${cmenu.children}">
+									<a th:text="${emenu.resName}" class="site-demo-active" th:attr="data-id=${emenu.id},data-name=${emenu.resName},data-url=${emenu.url}">三级菜单</a>
+								</dd>
+							</dl>
+						</dd>
+					</dl></li>
+
+			</ul>
+		</div>
+	</div>
+	
+	  <!--tab标签-->
+    <div class="layui-tab layui-tab-brief layui-tab-card" lay-filter="demo" lay-allowclose="true" style="margin-left: 200px; height: 100px;">
+        <ul class="layui-tab-title"></ul>
+        <div class="layui-tab-content"></div>
+    </div>
+
+<div class="layui-footer" style="text-align:center;">
+    <!-- 底部固定区域 -->
+    <a href="http://www.github.com/zhangyao1996">我的Git</a>
+</div>
+</div>
+</body>
+<script type="text/javascript" src="../../lib/layui/layui.js"></script>
+<script type="text/javascript" src="../../js/index.js"></script>
+</html>
+
+

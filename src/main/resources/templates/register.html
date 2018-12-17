@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>注册</title>
+<link rel="stylesheet" th:href="@{../../lib/layui/css/layui.css}" />
+<link rel="stylesheet" th:href="@{../../lib/css/login.css}" />
+</head>
+<div class="clear box layui-main login">
+	<form class="layui-form">
+		<div class="layui-form-item">
+			<label class="layui-form-label">用户名 ：</label>
+			<div class="layui-input-inline">
+				<input type="text" name="username" required lay-verify="username"
+					placeholder="请输入用户名(用户名为4-16位的字母与数字)" autocomplete="off" class="layui-input"
+					id="username" style="width:300px">
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label">中文名 ：</label>
+			<div class="layui-input-inline">
+				<input type="text" name="fullname" required lay-verify="fullname"
+					placeholder="请输入中文名" autocomplete="off" class="layui-input"
+					id="fullname" style="width:300px">
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label">密    码：</label>
+			<div class="layui-input-inline">
+				<input type="password" name="password" required
+					lay-verify="password" placeholder="请输入密码(密码为4-16位的字母与数字)" autocomplete="off"
+					class="layui-input" id="password" style="width:300px">
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label">再次确认密码：</label>
+			<div class="layui-input-inline">
+				<input type="password" name="repassword" required
+					lay-verify="password" placeholder="请输入密码(密码为4-16位的字母与数字)" autocomplete="off"
+					class="layui-input" id="repassword" style="width:300px">
+			</div>
+		</div>
+		<br>
+		<div class="layui-form-item">
+			<div style="text-align: center;">
+				<button lay-submit lay-filter="register" type="button"  class="layui-btn">注册</button>
+				<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+			</div>
+		</div>
+	</form>
+
+
+</div>
+<script type="text/javascript" src="../../lib/layui/layui.js"></script>
+<script type="text/javascript" src="../../js/register.js"></script>
+</body>
+</html>
