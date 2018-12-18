@@ -47,6 +47,7 @@ public class RegisterController {
 		System.out.println(user);
 		try {
 			if(userService.findByUserName(user.getUserName())==null) {
+				user.setSex(0);
 				userService.createUser(user);
 				return new Result(true, "success");
 			}else {

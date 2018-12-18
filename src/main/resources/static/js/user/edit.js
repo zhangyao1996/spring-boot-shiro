@@ -43,9 +43,9 @@ layui.use([ 'form', 'laydate', 'jquery' ], function() {
 
 	}
 
-	form.on('select(roleId)', function(data) {
-		$("#roleId").val(data.value)
-	});
+	/*form.on('select(roleId)', function(data) {
+		$("#roleId").val(data.value);
+	});*/
 
 	form.on('submit(edit)', function(data) {
 		// console.log(data.field);
