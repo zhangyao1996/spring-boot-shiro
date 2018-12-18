@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhangyao.mapper.RoleMapper">
+
+	 <resultMap id="BaseResultMap" type="com.zhangyao.entity.Role">
+        <id column="role_id" jdbcType="BIGINT" property="roleId"/>
+        <result column="roler_name" jdbcType="VARCHAR" property="roleName"/>
+    </resultMap>
+	
+	
+	<!-- 为什么resultMap可以获取全部字段而resultType只能获取部分字段呢？ -->
+	<select id="selectRoleByName" parameterType="string" resultMap="BaseResultMap">
+		select * from sys_role where role_name=#{RoleName}
+	</select>
+	
+	
+</mapper> 

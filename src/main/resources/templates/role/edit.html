@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" th:href="@{../../lib/layui/css/layui.css}" />
+<link rel="stylesheet" th:href="@{../../lib/css/login.css}" />
+</head>
+<div>
+	<form class="layui-form" lay-filter='form'>
+		<div class="layui-form-item">
+			<input type="text" th:value="${role.roleId}" name="id" id="id" hidden="hidden">
+
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label">角色名 ：</label>
+			<div class="layui-input-inline">
+				<input type="text"  th:value="${role.roleName}" name="rolename" required lay-verify="rolename|required"
+					placeholder="请输入角色名" autocomplete="off" class="layui-input"
+					id="rolename">
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label">权限路径</label>
+			<div class="layui-input-inline">
+				<div id="xtree" name="xtree"
+					style="width: 200px; border: 1px solid black; padding: 10px 0 25px 5px;"></div>
+			</div>
+		</div>
+		<br>
+		<div class="layui-form-item">
+			<div class="layui-input-block">
+				<button lay-submit lay-filter="edit" type="button" class="layui-btn">立即提交</button>
+				<input id="clear" type="button" class="layui-btn layui-btn-primary" value="重置">
+			</div>
+		</div>
+	</form>
+
+
+</div>
+<script type="text/javascript" src="../../lib/layui/layui.js"></script>
+<script type="text/javascript"
+	src="../../lib/layui/lay/modules/xtree.js"></script>
+<script type="text/javascript" src="../../lib/layui/layui-treetable.js"></script>
+<script type="text/javascript" src="../../js/role/edit.js"></script>
+</body>
+</html>
