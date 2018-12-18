@@ -14,4 +14,12 @@ public interface RoleService {
 	PageBean getAllRole(int pageCode, int pageSize);
 	
 	Role getRoleById(Integer roleId);
+	
+	Role getRoleByName(String roleName);
+	
+	void CreateRole(Role role);
+	
+	void deleteRoleById(long roleId);
+	
+	void editRole(Role role);
 }

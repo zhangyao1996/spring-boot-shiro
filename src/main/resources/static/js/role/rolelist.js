@@ -1,8 +1,7 @@
-
 layui.use('table', function() {
 	var table = layui.table;
 	var laypage = layui.laypage;
-
+	var $ = layui.$;
 	// table.render()方法返回一个对象：var tableIns =
 	// table.render(options)，可用于对当前表格进行“重载”等操作
 	table.render({
@@ -45,20 +44,21 @@ layui.use('table', function() {
 	// 绑定查删改事件test对于table中的lay-filter的值
 	table.on('tool(test)', function(obj) {
 		var data = obj.data;
+		var roleName=data.roleName;
 		if (obj.event === 'detail') {
 			detailRole(data.roleId);
 		} else if (obj.event == 'del') {
-			layer.confirm('真的删除么?', {
+			layer.confirm('真的删除'+roleName+'吗？', {
 				skin : 'layui-layer-lan',
 				closeBtn : 0,
 				anim : 4
 			// 动画类型
 			}, function(index) {
-				delUser(data.userId);
+				delUser(data.roleId);
 				layer.close(index);
 			});
 		} else if (obj.event == 'edit') {
-			editUser(data.userId);
+			editUser(data.roleId);
 		}
 	});
 
@@ -66,7 +66,7 @@ layui.use('table', function() {
 	function detailRole(id) {
 		layer.open({
 			area : [ '493px', '424px' ], // 宽高
-			title : '用户详情',
+			title : '角色详情',
 			type : 2,
 			fix : false, // 不固定
 			maxmin : true,
@@ -90,18 +90,18 @@ layui.use('table', function() {
 	function editUser(id) {
 		layer.open({
 			area : [ '493px', '424px' ], // 宽高
-			title : '修改用户',
+			title : '修改角色',
 			type : 2,
 			fix : false, // 不固定
 			maxmin : true,
-			content : '../../user/edit?userId=' + id,
+			content : '../../role/edit?roleId=' + id,
 		});
 	}
 
 	// 删除用户信息
 	function delUser(id) {
 		$.ajax({
-			url : "../../user/del?userId=" + id,
+			url : "../../role/del?roleId=" + id,
 			type : "delete",
 			success : function(data) {
 				if (data.result == true) {

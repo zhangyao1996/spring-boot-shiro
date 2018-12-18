@@ -52,8 +52,16 @@ function confirm() {
 		var $ = layui.$;
 		form.on('submit(add)', function(data) {
 
-			roleName = $("#rolename").val();
-			nodes = "";
+			var rolename = $("#rolename").val();
+			console.log(rolename);
+			var allNodes=xtree.GetAllCheckBox();
+			var nodes="";
+			for(var i=0;i<allNodes.length;i++){
+				if(allNodes[i].checked){
+					nodes+=allNodes[i].value+",";
+				}
+			}
+			console.log(nodes);
 			$.ajax({
 				url : '../../role/add',
 				type : 'post',
@@ -68,8 +76,7 @@ function confirm() {
 						layer.msg(data.msg, {
 							icon : 1,
 							time : 2000
-						},
-								function() {
+						},function() {
 									parent.location.reload(); // 父页面刷新
 									var index = parent.layer
 											.getFrameIndex(window.name); // 获取窗口索引

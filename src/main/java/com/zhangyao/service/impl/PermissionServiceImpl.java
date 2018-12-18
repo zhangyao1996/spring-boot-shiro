@@ -62,15 +62,6 @@ public class PermissionServiceImpl implements PermissionService {
 		}
 		return xtrees;
 	}
-/*	function disabled(nodes){
-		for(var i=0;i<nodes.length;i++){
-			nodes[i]["disabled"]=true;
-			if(nodes[i].data.length>0){
-				disabled(nodes[i].data);
-			}
-		}	
-		return nodes;
-	}*/
 	
 	@Override
 	public List<Xtree> getAll() {
@@ -112,7 +103,7 @@ public class PermissionServiceImpl implements PermissionService {
 		}
 		// 把子菜单的子菜单再循环一遍
 		for (Xtree menu : childList) {
-			// 没有url子菜单还有子菜单
+			// 判断是否是末级节点
 			if (endNode(Integer.valueOf(menu.getValue()), rootMenu)) {
 				// 递归
 				menu.setData(getChild(Integer.valueOf(menu.getValue()), rootMenu));

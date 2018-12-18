@@ -4,12 +4,7 @@ layui.use(['form','laydate','jquery'], function(){
   var $=layui.jquery;
   
   //重置表单
-/*  $("#apk_reset_btn").on("click",function () {
-  	$("input[type=file]").val("");
-  	$(".layui-upload-choose").text("");
-  	
-  	$('#apk_add_form')[0].reset();
-  });*/
+
 	  $('#clear').click(function() {
 		form.val('form', {
 			"username" : "",
