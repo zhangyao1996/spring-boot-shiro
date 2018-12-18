@@ -44,6 +44,17 @@
 			</div>
 		</div>
 		<div class="layui-form-item">
+			<label class="layui-form-label">角     色：</label>
+			<div class="layui-input-block">
+				<select name="roleId" id="roleId" lay-verify="required" lay-filter="roleId">
+					<option value="">请选择角色</option>
+					<option th:selected="${roleId  eq role.roleId}"
+						th:each="role : ${roleList}" th:value="${role.roleId}"
+						th:text="${role.roleName}"></option>
+				</select>
+			</div>
+		</div>
+		<div class="layui-form-item">
 			<label class="layui-form-label">手机号 ：</label>
 			<div class="layui-input-inline">
 				<input type="tel" th:value="${user.phonenumber}" name="phonenumber"  required

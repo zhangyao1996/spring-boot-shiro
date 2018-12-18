@@ -78,6 +78,14 @@ public class RoleServiceImpl implements RoleService {
 			roleMapper.addRolePers(roleId, permissionId);
 		}
 	}
+
+	@Override
+	public List<Role> getAll() {
+		// TODO Auto-generated method stub
+		return roleMapper.selectAll();
+	}
+	
+	
 	
 	
 	

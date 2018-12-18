@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -49,6 +50,9 @@ public class User {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date birthday;
 
+	@Transient 
+	private Long roleId;
+	
 	public String getCredentialsSalt() {
 		return userName + salt;
 	}

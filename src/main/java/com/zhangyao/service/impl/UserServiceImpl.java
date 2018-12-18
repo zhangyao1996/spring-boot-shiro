@@ -30,7 +30,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public void createUse(User user) {
+	public void createUser(User user) {
 		// TODO Auto-generated method stub
 		// 给user对象的密码做加密
 		passwordHelper.encryptPassword(user);
@@ -61,16 +61,16 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public User findUserById(Integer userId) {
+	public User findUserById(Long userId) {
 		// TODO Auto-generated method stub
 		return userMapper.selectByPrimaryKey(userId);
 	}
 
 	@Override
-	public void deleteUserById(Integer userId) {
+	public void deleteUserById(Long userId) {
 		// TODO Auto-generated method stub
 		userMapper.deleteByPrimaryKey(userId);
-
+		
 	}
 
 	@Override
@@ -82,4 +82,30 @@ public class UserServiceImpl implements UserService {
 		userMapper.updateByPrimaryKey(user);
 	}
 
+	@Override
+	public void createUserRole(Long userId, Long roleId) {
+		// TODO Auto-generated method stub
+		userMapper.createUserRole(userId, roleId);
+	}
+	
+	@Override
+	public String findRoleNameByUserId(Long userId) {
+		return userMapper.findRoleNameByUserId(userId);
+	}
+
+	@Override
+	public void updateRoleIdByUserId(Long roleId, Long userId) {
+		// TODO Auto-generated method stub
+		userMapper.updateRoleIdByUserId(roleId, userId);
+	}
+
+	@Override
+	public void deleteUserRoleByUserId(Long userId) {
+		// TODO Auto-generated method stub
+		userMapper.deleteUserRoleByUserId(userId);
+	}
+	
+	
+	
+	
 }

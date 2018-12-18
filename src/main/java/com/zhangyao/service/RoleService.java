@@ -6,6 +6,8 @@ package com.zhangyao.service;
 
 
 
+import java.util.List;
+
 import com.zhangyao.entity.PageBean;
 import com.zhangyao.entity.Role;
 
@@ -22,4 +24,6 @@ public interface RoleService {
 	void deleteRoleById(long roleId);
 	
 	void editRole(Role role);
+	
+	List<Role> getAll();
 }
