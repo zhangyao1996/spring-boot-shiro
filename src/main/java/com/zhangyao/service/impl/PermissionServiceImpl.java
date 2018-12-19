@@ -44,25 +44,30 @@ public class PermissionServiceImpl implements PermissionService {
 
 		List<Permission> permissions = permissionMapper.selectPermissionByRoleId(roleId);
 		List<Xtree> xtrees = getAll();
-		
-		return getPer(xtrees,permissions);
+		// ?
+		return getPer(xtrees, permissions);
 	}
-	
-	
-	public List<Xtree> getPer(List<Xtree> xtrees,List<Permission> permissions){
-		for(int i=0;i<xtrees.size();i++) {
+
+	public List<Xtree> getPer(List<Xtree> xtrees, List<Permission> permissions) {
+		for (int i = 0; i < xtrees.size(); i++) {
 			for (Permission permission : permissions) {
-				if(permission.getId()==Long.valueOf(xtrees.get(i).getValue())) {
+				if (permission.getId() == Long.valueOf(xtrees.get(i).getValue())) {
 					xtrees.get(i).setChecked(true);
 				}
 			}
-			if(xtrees.get(i).getData().size()>0) {
-				getPer(xtrees.get(i).getData(),permissions);
+			if (xtrees.get(i).getData() == null) {
+				System.out.println("kong");
+				xtrees.get(i).setData(new LinkedList<>());
+			} else {	
+				if (xtrees.get(i).getData().size() > 0) {
+					getPer(xtrees.get(i).getData(), permissions);
+				}
 			}
+
 		}
 		return xtrees;
 	}
-	
+
 	@Override
 	public List<Xtree> getAll() {
 		// TODO Auto-generated method stub
@@ -189,4 +194,37 @@ public class PermissionServiceImpl implements PermissionService {
 		return false;
 	}
 
+	@Override
+	public List<Permission> getAllPers() {
+		// TODO Auto-generated method stub
+		return permissionMapper.selectAll();
+	}
+
+	@Override
+	public void deletePersById(Long id) {
+		// TODO Auto-generated method stub
+		permissionMapper.deleteByPrimaryKey(id);
+		permissionMapper.deletePersRoleByPersId(id);
+
+	}
+
+	@Override
+	public Permission getPersById(Long id) {
+		// TODO Auto-generated method stub
+		return permissionMapper.selectByPrimaryKey(id);
+	}
+
+	@Override
+	public void createPer(Permission permission) {
+		// TODO Auto-generated method stub
+		permissionMapper.insert(permission);
+	}
+
+	@Override
+	public void editPer(Permission permission) {
+		// TODO Auto-generated method stub
+		permissionMapper.updateByPrimaryKey(permission);
+	}
+
+	
 }

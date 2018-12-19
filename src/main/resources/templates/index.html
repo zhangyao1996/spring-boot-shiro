@@ -23,17 +23,6 @@
 		 <!-- 左侧垂直导航区域-->
 			<ul class="layui-nav layui-nav-tree" lay-filter="test">
 
-			<!-- 	<li class="layui-nav-item"><a
-					href="javascript:;"> <i class="layui-icon layui-icon-home"></i>
-						<cite>主页</cite> <span class="layui-nav-more"></span>
-				</a>
-					<dl class="layui-nav-child">
-						<dd data-name="console" class="layui-this">
-							<a lay-href="/system/main">了解ME</a>
-						</dd>
-					</dl>
-				</li> -->
-
 				<li class="layui-nav-item" th:each="menu : ${permissions}">
 				<a href="javascript:;"> <i class="layui-icon layui-icon-home"
 						></i> <cite th:text="${menu.resName}">一级菜单</cite>

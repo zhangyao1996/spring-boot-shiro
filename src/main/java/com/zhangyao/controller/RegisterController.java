@@ -49,6 +49,8 @@ public class RegisterController {
 			if(userService.findByUserName(user.getUserName())==null) {
 				user.setSex(0);
 				userService.createUser(user);
+				Long userId=userService.findByUserName(user.getUserName()).getUserId();
+				userService.createUserRole(userId, Long.valueOf(1));
 				return new Result(true, "success");
 			}else {
 				return new Result(false, "exist");

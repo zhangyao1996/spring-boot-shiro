@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" th:href="@{../../lib/layui/css/layui.css}" />
+
+</head>
+<div>
+	<form class="layui-form">
+		<div class="layui-form-item">
+			<label class="layui-form-label">父级菜单ID ：</label>
+			<div class="layui-input-inline">
+				<input type="text" th:value="${per.id}" class="layui-input"
+					id="parentid" readonly="readonly">
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label">父级菜单名 ：</label>
+			<div class="layui-input-inline">
+				<input type="text" th:value="${per.resName}" class="layui-input"
+					readonly="readonly">
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label">权限菜单名 ：</label>
+			<div class="layui-input-inline">
+				<input type="text" name="resname" required
+					lay-verify="resname|required" placeholder="请输入权限菜单名:"
+					autocomplete="off" class="layui-input" id="resname">
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label">权限菜单类型：</label>
+			<div class="layui-input-block">
+				<input type="radio" name="restype" value="menu" title="菜单" checked>
+				<input type="radio" name="restype" value="button" title="按钮">
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label">权限菜单描述 ：</label>
+			<div class="layui-input-inline">
+				<input type="text" name="permission" required
+					lay-verify="permission|required" placeholder="请输入权限菜单描述:"
+					autocomplete="off" class="layui-input" id="permission">
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label">URL ：</label>
+			<div class="layui-input-inline">
+				<input type="text" name="url" placeholder="请输入权限url:"
+					autocomplete="off" class="layui-input" id="url">
+			</div>
+		</div>
+		<br>
+		<div class="layui-form-item">
+			<div class="layui-input-block">
+				<button lay-submit lay-filter="add" type="button" class="layui-btn">立即提交</button>
+				<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+			</div>
+		</div>
+	</form>
+
+
+</div>
+<script type="text/javascript" src="../../lib/layui/layui.js"></script>
+<script type="text/javascript"
+	src="../../lib/layui/lay/modules/xtree.js"></script>
+<script type="text/javascript" src="../../lib/layui/layui-treetable.js"></script>
+<script type="text/javascript" src="../../js/pers/add.js"></script>
+</body>
+</html>
