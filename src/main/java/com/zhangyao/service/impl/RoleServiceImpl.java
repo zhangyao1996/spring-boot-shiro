@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
-import com.zhangyao.entity.PageBean;
-import com.zhangyao.entity.Role;
+import com.zhangyao.entity.system.PageBean;
+import com.zhangyao.entity.system.Role;
 import com.zhangyao.mapper.RoleMapper;
 import com.zhangyao.service.RoleService;
 

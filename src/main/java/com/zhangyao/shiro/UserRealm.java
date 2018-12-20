@@ -14,8 +14,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.zhangyao.entity.Permission;
-import com.zhangyao.entity.User;
+import com.zhangyao.entity.system.Permission;
+import com.zhangyao.entity.system.User;
 import com.zhangyao.service.PermissionService;
 import com.zhangyao.service.UserService;
 

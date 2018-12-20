@@ -2,10 +2,10 @@ package com.zhangyao.service;
 
 import java.util.List;
 
-import com.zhangyao.entity.Permission;
-import com.zhangyao.entity.TreeEntity;
-import com.zhangyao.entity.User;
-import com.zhangyao.entity.Xtree;
+import com.zhangyao.entity.system.Permission;
+import com.zhangyao.entity.system.TreeEntity;
+import com.zhangyao.entity.system.User;
+import com.zhangyao.entity.system.Xtree;
 
 /**
  * @author zhangyao:

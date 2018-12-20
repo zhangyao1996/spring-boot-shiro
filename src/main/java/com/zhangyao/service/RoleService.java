@@ -8,8 +8,8 @@ package com.zhangyao.service;
 
 import java.util.List;
 
-import com.zhangyao.entity.PageBean;
-import com.zhangyao.entity.Role;
+import com.zhangyao.entity.system.PageBean;
+import com.zhangyao.entity.system.Role;
 
 
 public interface RoleService {

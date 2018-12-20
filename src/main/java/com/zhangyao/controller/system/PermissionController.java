@@ -1,4 +1,4 @@
-package com.zhangyao.controller;
+package com.zhangyao.controller.system;
 
 import java.util.List;
 
@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.zhangyao.entity.Permission;
-import com.zhangyao.entity.Result;
-import com.zhangyao.entity.TreeTable;
+import com.zhangyao.entity.system.Permission;
+import com.zhangyao.entity.system.Result;
+import com.zhangyao.entity.system.TreeTable;
 import com.zhangyao.service.PermissionService;
 
 @Controller

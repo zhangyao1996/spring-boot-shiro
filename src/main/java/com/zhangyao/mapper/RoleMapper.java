@@ -5,7 +5,7 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
-import com.zhangyao.entity.Role;
+import com.zhangyao.entity.system.Role;
 
 import tk.mybatis.mapper.common.BaseMapper;
 

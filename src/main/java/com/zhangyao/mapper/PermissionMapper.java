@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
-import com.zhangyao.entity.Permission;
+import com.zhangyao.entity.system.Permission;
 
 import tk.mybatis.mapper.common.BaseMapper;
 

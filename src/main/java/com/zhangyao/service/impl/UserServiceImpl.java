@@ -5,8 +5,8 @@ import org.springframework.stereotype.Service;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
-import com.zhangyao.entity.PageBean;
-import com.zhangyao.entity.User;
+import com.zhangyao.entity.system.PageBean;
+import com.zhangyao.entity.system.User;
 import com.zhangyao.mapper.UserMapper;
 import com.zhangyao.service.UserService;
 import com.zhangyao.utils.PasswordHelper;

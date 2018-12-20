@@ -8,9 +8,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.zhangyao.entity.Permission;
-import com.zhangyao.entity.User;
-import com.zhangyao.entity.Xtree;
+import com.zhangyao.entity.system.Permission;
+import com.zhangyao.entity.system.User;
+import com.zhangyao.entity.system.Xtree;
 import com.zhangyao.mapper.PermissionMapper;
 import com.zhangyao.service.PermissionService;
 

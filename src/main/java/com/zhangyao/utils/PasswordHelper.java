@@ -4,12 +4,13 @@ package com.zhangyao.utils;
 * @date 创建时间：Nov 30, 2018 9:48:12 AM
 */
 
-import com.zhangyao.entity.User;
 import org.apache.shiro.crypto.RandomNumberGenerator;
 import org.apache.shiro.crypto.SecureRandomNumberGenerator;
 import org.apache.shiro.crypto.hash.SimpleHash;
 import org.apache.shiro.util.ByteSource;
 import org.springframework.stereotype.Component;
+
+import com.zhangyao.entity.system.User;
 
 /**
  * @auther TyCoding

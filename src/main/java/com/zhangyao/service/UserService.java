@@ -4,8 +4,8 @@ package com.zhangyao.service;
 * @date 创建时间：Dec 12, 2018 3:19:57 PM
 */
 
-import com.zhangyao.entity.PageBean;
-import com.zhangyao.entity.User;
+import com.zhangyao.entity.system.PageBean;
+import com.zhangyao.entity.system.User;
 
 public interface UserService {
 	

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" th:href="@{../../lib/layui/css/layui.css}" />
+
+</head>
+<body>
+	<div class="layui-form-item">
+		<input type="text" th:value="${user.userId}" name="id" id="id"
+			hidden="hidden">
+	</div>
+</body>
+<script type="text/javascript" src="../../lib/layui/layui.js"></script>
+<script type="text/javascript" src="../../js/set/delete.js"></script>
+</html>
+

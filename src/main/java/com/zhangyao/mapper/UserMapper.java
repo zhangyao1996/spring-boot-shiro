@@ -8,7 +8,7 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
 import com.github.pagehelper.Page;
-import com.zhangyao.entity.User;
+import com.zhangyao.entity.system.User;
 
 import tk.mybatis.mapper.common.BaseMapper;
 

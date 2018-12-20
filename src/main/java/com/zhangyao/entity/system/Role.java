@@ -1,4 +1,4 @@
-package com.zhangyao.entity;
+package com.zhangyao.entity.system;
 
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;

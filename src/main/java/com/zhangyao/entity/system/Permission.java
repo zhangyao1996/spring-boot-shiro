@@ -1,4 +1,4 @@
-package com.zhangyao.entity;
+package com.zhangyao.entity.system;
 
 import java.util.ArrayList;
 import java.util.List;
