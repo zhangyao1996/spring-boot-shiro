@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhangyao.mapper.app.PaperMapper">
+
+	<resultMap id="BaseResultMap" type="com.zhangyao.entity.app.Paper">
+		<id column="id" jdbcType="BIGINT" property="id" />
+		<result column="type_id" jdbcType="INTEGER" property="typeId" />
+		<result column="title" jdbcType="VARCHAR" property="title" />
+		<result column="author" jdbcType="VARCHAR" property="author" />
+		<result column="upload_time" jdbcType="DATE" javaType="java.sql.Date"
+			property="uploadTime" />
+		<result column="status" jdbcType="INTEGER" property="status" />
+		<result column="content" jdbcType="VARCHAR" property="content" />
+		<collection property="paperType" javaType="com.zhangyao.entity.app.PaperType">
+			<id column="id" jdbcType="INTEGER" property="id" />
+			<result column="type_name" jdbcType="VARCHAR" property="typeName" />
+		</collection>
+	</resultMap>
+
+	<select id="findByPage" resultMap="BaseResultMap">
+	SELECT
+	sp.id,sp.type_id,sp.title,sp.author,sp.upload_time,
+	sp.status,sp.content,spt.id as tid,spt.type_name
+	FROM sys_paper sp LEFT
+	JOIN sys_paper_type spt ON sp.type_id=spt.id
+	<where>
+		<if test="author != null and author != ''">
+			AND sp.author LIKE '%${author}%'
+		</if>
+		<if test="title != null and title != ''">
+			AND sp.title LIKE '%${title}%'
+		</if>
+		<if test="typename != null and typename != ''">
+			AND spt.type_name LIKE '%${typename}%'
+		</if>
+	</where>
+	</select>
+
+	<select id="findAllPaperType" resultType="com.zhangyao.entity.app.PaperType">
+	SELECT id,type_name as typeName FROM sys_paper_type
+	</select>
+
+
+</mapper>
