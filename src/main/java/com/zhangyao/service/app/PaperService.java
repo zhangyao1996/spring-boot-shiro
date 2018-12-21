@@ -19,4 +19,15 @@ public interface PaperService {
 	void editPaper(Paper paper);
 	
 	void deletePaperById(Long id);
+	
+	//获取pageBean格式的所有types
+	PageBean findAllTypes(Integer pageCode, Integer pageSize);
+	
+	void addPaperType(PaperType paperType);
+	
+	PaperType getPaperTypeById(Integer id);
+	
+	void editPaperType(PaperType paperType);
+	
+	void deleteType(Integer id);
 }

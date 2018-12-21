@@ -28,6 +28,7 @@ public class PaperController {
 	@Autowired
 	private PaperService paperService;
 
+	// 文章列表
 	@GetMapping("/paperList")
 	public String paperLsit(Model model) {
 		List<PaperType> types = paperService.getAllTypes();
@@ -63,77 +64,142 @@ public class PaperController {
 	@PostMapping("/add")
 	@ResponseBody
 	public Result addPaper(@RequestBody(required = false) Paper paper) {
-		
+
 		Long time = System.currentTimeMillis();
 		paper.setUploadTime(new Date(time));
 		System.out.println(paper);
 		try {
 			paperService.createPaper(paper);
 			return new Result(true, "添加成功");
-		}catch (Exception e) {
+		} catch (Exception e) {
 			// TODO: handle exception
 			System.out.println(e);
 			return new Result(false, "添加失败");
 		}
-		
+
 	}
-	
+
 	@GetMapping("/edit")
-	public String edit(Long id,Model model) {
-		
-		Paper paper=paperService.getPaperById(id);
+	public String edit(Long id, Model model) {
+
+		Paper paper = paperService.getPaperById(id);
 		List<PaperType> types = paperService.getAllTypes();
 		model.addAttribute("types", types);
 		model.addAttribute("paper", paper);
 		return "paper/edit";
 	}
-	
+
 	@DeleteMapping("/del")
 	@ResponseBody
 	public Result delPaper(Long id) {
-		
+
 		try {
 			paperService.deletePaperById(id);
 			return new Result(true, "删除成功");
-		}catch (Exception e) {
+		} catch (Exception e) {
 			// TODO: handle exception
 			System.out.println(e);
 			return new Result(false, "删除失败");
 		}
 	}
-	
+
 	@DeleteMapping("/deletePaperIds")
 	@ResponseBody
 	public Result delPaperIds(String ids) {
-		String[] id=ids.split(",");
+		String[] id = ids.split(",");
 		try {
 			for (int i = 0; i < id.length; i++) {
-				Long num=Long.valueOf(id[i]);
+				Long num = Long.valueOf(id[i]);
 				paperService.deletePaperById(num);
 			}
 			return new Result(true, "删除成功");
-		}catch (Exception e) {
+		} catch (Exception e) {
 			// TODO: handle exception
 			System.out.println(e);
 			return new Result(false, "删除失败");
 		}
 	}
-	
+
 	@PostMapping("/edit")
 	@ResponseBody
 	public Result editPaper(@RequestBody(required = false) Paper paper) {
-		
+
 		Long time = System.currentTimeMillis();
 		paper.setUploadTime(new Date(time));
 		System.out.println(paper);
 		try {
 			paperService.editPaper(paper);
 			return new Result(true, "修改成功");
-		}catch (Exception e) {
+		} catch (Exception e) {
 			// TODO: handle exception
 			System.out.println(e);
 			return new Result(false, "修改失败");
 		}
-		
+
+	}
+
+	// 文章分类管理
+	@GetMapping("/paperAssortment")
+	public String paperAssortment() {
+		System.out.println("types");
+		return "paper/typelist";
+	}
+
+	@RequestMapping("/findType")
+	@ResponseBody
+	public PageBean findAllType(@RequestParam("page") Integer pageCode, @RequestParam("limit") Integer pageSize) {
+		return paperService.findAllTypes(pageCode, pageSize);
+	}
+
+	@GetMapping("/addType")
+	public String addType() {
+		return "paper/addtype";
+	}
+
+	@PostMapping("/addType")
+	@ResponseBody
+	public Result addType(@RequestBody(required = false) PaperType paperType) {
+		try {
+			paperService.addPaperType(paperType);
+			return new Result(true, "添加成功");
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println(e);
+			return new Result(false, "添加失败");
+		}
+	}
+
+	@GetMapping("/editType")
+	public String editType(Integer id, Model model) {
+		PaperType type = paperService.getPaperTypeById(id);
+		model.addAttribute("type", type);
+		System.out.println("type:" + type);
+		return "paper/edittype";
+	}
+
+	@PostMapping("/editType")
+	@ResponseBody
+	public Result editType(@RequestBody(required = false) PaperType paperType) {
+		try {
+			paperService.editPaperType(paperType);
+			return new Result(true, "修改成功");
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("yic:" + e.getMessage());
+			return new Result(false, "修改失败");
+		}
+	}
+
+	@DeleteMapping("/delType")
+	@ResponseBody
+	public Result deleteType(Integer id) {
+		try {
+			paperService.deleteType(id);
+			return new Result(true, "删除成功");
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("yic:" + e.getMessage());
+			return new Result(false, "删除失败");
+		}
 	}
 }

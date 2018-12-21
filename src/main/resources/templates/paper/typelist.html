@@ -11,36 +11,7 @@
 
 </head>
 <body>
-	<div class="search">
-		<span>作者：</span>
-		<div class="layui-inline">
-			<input class="layui-input" id="author" autocomplete="off"
-				placeholder="请输入">
-		</div>
 
-		<span>标题：</span>
-		<div class="layui-inline">
-			<input class="layui-input" id="title" autocomplete="off"
-				placeholder="请输入">
-		</div>
-		
-		<span>文章类型：</span>
-		<div class="layui-inline">
-				<select name="typename" id="typename" class="layui-input" style="width: 100px">
-					<option value="">请选择</option>
-					<option th:selected="${typename  eq type.typeName}"
-						th:each="type : ${types}" th:value="${type.typeName}"
-						th:text="${type.typeName}"></option>
-				</select>
-		</div>
-
-		<button class="layui-btn" data-type="search">
-			<i class="layui-icon">&#xe615;</i>   
-		</button>
-		<button class="layui-btn  layui-btn-warm">
-			<i class="layui-icon">&#xe669;</i>   
-		</button>
-	</div>
 
 	<div class="layui-row">
 		<!--lay-filter稍后用于绑定相应事件使用-->
@@ -49,8 +20,8 @@
 	<!--用于绑定表格外加上操作按钮-->
 	<script type="text/html" id="toolbarDemo">
     <div class="layui-btn-container">
-        <button class="layui-btn layui-btn-sm" lay-event="add">添加文章</button>
-        <button class="layui-btn layui-btn-sm" lay-event="getCheckData">批量删除</button>
+        <button class="layui-btn layui-btn-sm" lay-event="add">添加</button>
+     	  <button class="layui-btn layui-btn-sm" lay-event="reload"><i class="layui-icon">&#xe669;</i></button>
     </div>
 	</script>
 
@@ -66,5 +37,5 @@
 </body>
 <script src="../../lib/layui/layui.js"></script>
 <script src="../../lib/layui/layui.all.js"></script>
-<script src="../../js/paper/paperlist.js"></script>
+<script src="../../js/paper/typelist.js"></script>
 </html>

@@ -70,7 +70,7 @@ layui.use('table',function() {
 					
 					// 获取搜索框信息
 					var $ = layui.$, active = {
-						reload : function() {
+						search : function() {
 							var author=$('#author').val();
 							var title=$('#title').val();
 							var typename=$('#typename').val();
@@ -95,6 +95,12 @@ layui.use('table',function() {
 					$('.search .layui-btn').on('click', function() {
 						var type = $(this).data('type');
 						active[type] ? active[type].call(this) : '';
+					});
+					
+					//点击刷新
+					// 点击搜索
+					$('.search .layui-btn-warm').on('click', function() {
+						location.reload();
 					});
 
 					// 头工具栏事件

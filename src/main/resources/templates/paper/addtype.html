@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>添加文章</title>
+<link rel="stylesheet" th:href="@{../../lib/layui/css/layui.css}" />
+</head>
+<div class=" layui-main ">
+	<form class="layui-form layui-form-pane">
+		<div class="layui-form-item">
+			<label class="layui-form-label">分类</label>
+			<div class="layui-input-inline">
+				<input type="text" name="typename" id="typename" required
+					lay-verify="required|typename" placeholder="请输入"
+					class="layui-input">
+			</div>
+		</div>
+		<br>
+		<div class="layui-form-item">
+			<div class="layui-input-block">
+				<button lay-submit lay-filter="add" type="button" class="layui-btn">立即提交</button>
+			</div>
+		</div>
+	</form>
+
+
+</div>
+<script type="text/javascript" src="../../lib/layui/layui.js"></script>
+<script type="text/javascript" src="../../js/paper/addtype.js"></script>
+</body>
+</html>

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
@@ -19,10 +20,9 @@ public class PaperServiceImpl implements PaperService {
 
 	@Autowired
 	private PaperMapper paperMaper;
-	
 
 	@Override
-	public PageBean paperList(String author, String title, String typename,Integer pageCode, Integer pageSize) {
+	public PageBean paperList(String author, String title, String typename, Integer pageCode, Integer pageSize) {
 		// TODO Auto-generated method stub
 		// 使用MyBatis 分页插件
 		PageHelper.startPage(pageCode, pageSize);
@@ -60,8 +60,42 @@ public class PaperServiceImpl implements PaperService {
 		// TODO Auto-generated method stub
 		paperMaper.deleteByPrimaryKey(id);
 	}
-	
-	
-	
 
+	@Override
+	public PageBean findAllTypes(Integer pageCode, Integer pageSize) {
+		// TODO Auto-generated method stub
+		// 使用MyBatis 分页插件
+		PageHelper.startPage(pageCode, pageSize);
+		// 查询所有数据
+		Page<PaperType> page =  (Page<PaperType>) paperMaper.findAllPaperType();
+		return new PageBean(page.getResult(), 0, "成功", page.getTotal());
+	}
+
+	@Override
+	public void addPaperType(PaperType paperType) {
+		// TODO Auto-generated method stub
+		paperMaper.addPaperType(paperType);
+	}
+
+	@Override
+	public PaperType getPaperTypeById(Integer id) {
+		// TODO Auto-generated method stub
+		return paperMaper.getPaperTypeById(id);
+	}
+
+	@Override
+	public void editPaperType(PaperType paperType) {
+		// TODO Auto-generated method stub
+		paperMaper.editPaperType(paperType);
+	}
+	
+	@Override
+	//事务回滚
+	@Transactional
+	 public void deleteType(Integer id) {
+		paperMaper.deleteType(id);
+		paperMaper.deletePaperByTypeId(id);
+	}
+
+	
 }
