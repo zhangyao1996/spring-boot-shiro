@@ -36,6 +36,32 @@ public class PaperServiceImpl implements PaperService {
 		// TODO Auto-generated method stub
 		return paperMaper.findAllPaperType();
 	}
+
+	@Override
+	public void createPaper(Paper paper) {
+		// TODO Auto-generated method stub
+		paperMaper.insert(paper);
+	}
+
+	@Override
+	public Paper getPaperById(Long id) {
+		// TODO Auto-generated method stub
+		return paperMaper.selectByPrimaryKey(id);
+	}
+
+	@Override
+	public void editPaper(Paper paper) {
+		// TODO Auto-generated method stub
+		paperMaper.updateByPrimaryKey(paper);
+	}
+
+	@Override
+	public void deletePaperById(Long id) {
+		// TODO Auto-generated method stub
+		paperMaper.deleteByPrimaryKey(id);
+	}
+	
+	
 	
 
 }

@@ -106,21 +106,21 @@ layui.use('table',function() {
 							var ids = "";
 							if (data.length > 0) {
 								for (var i = 0; i < data.length; i++) {
-									ids += data[i].userId + ",";
+									ids += data[i].id + ",";
 								}
 								layer.confirm('是否删除这' + data.length + '条数据', {
 									icon : 3,
 									title : '提示'
 								}, function(index) {
 
-									deleteUserIds(ids);
+									deletePaperIds(ids);
 								});
 							} else {
 								layer.alert("请选择要删除的数据");
 							}
 							break;
 						case 'add':
-							addUser();
+							addPaper();
 							break;
 						}
 						;
@@ -137,42 +137,42 @@ layui.use('table',function() {
 								anim : 4
 							// 动画类型
 							}, function(index) {
-								delUser(data.userId);
+								delPaper(data.id);
 								layer.close(index);
 							});
 						} else if (obj.event == 'edit') {
-							editUser(data.userId);
+							editPaper(data.id);
 						}
 					});
 
 					// 新增文章信息
-					function addUser() {
+					function addPaper() {
 						layer.open({
 							area : [ '493px', '424px' ], // 宽高
-							title : '增加用户',
+							title : '添加文章',
 							type : 2,
 							fix : false, // 不固定
 							maxmin : true,
-							content : '../../user/add'
+							content : '../../paper/add'
 						});
 					}
 
 					// 修改文章信息
-					function editUser(id) {
+					function editPaper(id) {
 						layer.open({
 							area : [ '493px', '424px' ], // 宽高
-							title : '修改用户',
+							title : '修改文章',
 							type : 2,
 							fix : false, // 不固定
 							maxmin : true,
-							content : '../../user/edit?userId=' + id,
+							content : '../../paper/edit?id=' + id,
 						});
 					}
 
 					// 删除文章信息
-					function delUser(id) {
+					function delPaper(id) {
 						$.ajax({
-							url : "../../user/del?userId=" + id,
+							url : "../../paper/del?id=" + id,
 							type : "delete",
 							success : function(data) {
 								if (data.result == true) {
@@ -192,9 +192,9 @@ layui.use('table',function() {
 					}
 
 					// 批量删除文章信息
-					function deleteUserIds(ids) {
+					function deletePaperIds(ids) {
 						$.ajax({
-							url : "../../user/deleteUserIds?ids=" + ids,
+							url : "../../paper/deletePaperIds?ids=" + ids,
 							type : "delete",
 							success : function(data) {
 								if (data.result == true) {

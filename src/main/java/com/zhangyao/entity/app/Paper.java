@@ -3,6 +3,8 @@ package com.zhangyao.entity.app;
 import java.sql.Date;
 
 import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
@@ -15,6 +17,7 @@ public class Paper {
 
 	@Id
 	@Column(name = "id")
+//	@GeneratedValue(strategy = GenerationType.IDENTITY, generator = "SELECT LAST_INSERT_ID()")
 	private Long id;
 
 	@Column(name = "type_id")
