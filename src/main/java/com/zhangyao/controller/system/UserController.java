@@ -164,6 +164,5 @@ public class UserController {
 			// TODO: handle exception
 			return new Result(false, "删除失败");
 		}
-
 	}
 }
